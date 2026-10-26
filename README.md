@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 📢 Announcement: ALOcc is now integrated into OccStudio!
 
 **ALOcc has been merged into [OccStudio](https://github.com/cdb342/OccStudio).** 
@@ -274,3 +275,10 @@ If you find ALOcc useful for your research or applications, please consider citi
 ```
 
 <p align="right"><a href="#top">🔼 Back to Top</a></p>
+=======
+# Same Model, New Car?
+
+Diagnosing zero-shot transfer of a pretrained 3D semantic occupancy model (ALOcc) from nuScenes to Waymo, with FlashOcc and OPUS as baselines.
+
+CMPE 249 – Intelligent Autonomous Systems, SJSU. Project Track: Option 1 – Apply and Evaluate Pretrained Models (No Training).
+>>>>>>> origin/main
