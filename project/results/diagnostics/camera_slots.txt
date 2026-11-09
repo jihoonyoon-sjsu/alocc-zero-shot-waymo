@@ -1,0 +1,7 @@
+# Sun Nov  8 12:28:00 PST 2026  env=alocc  cmd: python /home/jihoon/work/slot_report.py
+data_config cams: ['CAM_FRONT_LEFT', 'CAM_FRONT', 'CAM_FRONT_RIGHT', 'CAM_BACK_LEFT', 'CAM_BACK', 'CAM_BACK_RIGHT']
+CAM_FRONT        image_0/1000010.jpg    yaw    -0.1 deg  height 2.12 m  K [2059. 2059.  935.  635.]
+CAM_FRONT_LEFT   image_1/1000010.jpg    yaw    45.3 deg  height 2.12 m  K [2061. 2061.  969.  653.]
+CAM_SIDE_LEFT    image_3/1000010.jpg    yaw    90.2 deg  height 2.12 m  K [2055. 2055.  967.  247.]
+CAM_FRONT_RIGHT  image_2/1000010.jpg    yaw   -45.1 deg  height 2.12 m  K [2052. 2052.  958.  656.]
+CAM_SIDE_RIGHT   image_4/1000010.jpg    yaw   -89.9 deg  height 2.12 m  K [2068. 2068.  964.  244.]

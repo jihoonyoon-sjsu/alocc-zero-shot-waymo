@@ -22,12 +22,8 @@ This repository includes the code of **ALOcc** (Chen et al., ICCV 2025), copied 
 
 ## Repository layout
 
-| Path | Contents |
-|---|---|
-| `project/` | **Our work** |
-| `project/tools/` | Our scripts (class mapping, camera dropout configs, test runner) |
-| `project/results/` | Run logs and generated configs |
-| everything else | ALOcc's code |
+- `project/`: **our work** (code, run scripts, results). See [project/README.md](project/README.md) for a map of every folder.
+- Everything else: ALOcc's code, unmodified.
 
 ## Results so far (Occ3D-nuScenes val, 6,019 frames)
 

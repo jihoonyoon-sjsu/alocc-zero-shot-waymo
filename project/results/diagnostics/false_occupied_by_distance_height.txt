@@ -1,0 +1,5 @@
+# Sun Nov  8 12:27:36 PST 2026  env=alocc  cmd: python /home/jihoon/work/where_false_occ.py
+scene 0: GT-free voxels predicted occupied, by distance 0-10/10-20/20-30/30+ m: 82% 76% 78% 92%
+   by height bin (z=-1..5.4m, 0.4m): 100 100 100 100 98 80 74 72 75 84 90 92 92 99 100 0
+scene 37: GT-free voxels predicted occupied, by distance 0-10/10-20/20-30/30+ m: 84% 91% 84% 78%
+   by height bin (z=-1..5.4m, 0.4m): 100 100 97 87 48 25 39 28 17 18 22 19 0 0 0 0

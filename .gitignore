@@ -11,3 +11,9 @@ mmdet3d.egg-info
 map_dict.py
 openocc_training_eval_results
 grad_cam
+# Python cache
+__pycache__/
+*.pyc
+
+# Local build output
+build/

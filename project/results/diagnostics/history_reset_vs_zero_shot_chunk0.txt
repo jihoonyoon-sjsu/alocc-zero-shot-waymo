@@ -1,0 +1,2 @@
+# Sun Nov  8 12:27:53 PST 2026  env=alocc  cmd: python /home/jihoon/work/check_reset_differs.py
+frames 2034, identical frames 51, mean fraction of voxels that differ 35.33%

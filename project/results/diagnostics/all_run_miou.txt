@@ -1,0 +1,15 @@
+# Sun Nov  8 12:28:09 PST 2026  env=alocc  cmd: bash /home/jihoon/work/list_miou.sh
+./alocc_3d_drop_CAM_BACK_20261027_1057.log: mIoU of 6019 samples: 40.24
+./alocc_3d_r50_256x704_bevdet_preatrain_16f_20261025_2351.log: mIoU of 6019 samples: 45.46
+./batch_nuscenes/baseline.merged.log: mIoU of 6019 samples: 45.46
+./batch_nuscenes/baseline.padcheck.log: mIoU of 6019 samples: 45.46
+./batch_nuscenes/drop_CAM_BACK.log: mIoU of 6019 samples: 40.24
+./batch_nuscenes/drop_CAM_BACK_LEFT.log: mIoU of 6019 samples: 43.38
+./batch_nuscenes/drop_CAM_BACK_RIGHT.log: mIoU of 6019 samples: 43.51
+./batch_nuscenes/drop_CAM_FRONT.log: mIoU of 6019 samples: 38.6
+./batch_nuscenes/drop_CAM_FRONT_LEFT.log: mIoU of 6019 samples: 42.74
+./batch_nuscenes/drop_CAM_FRONT_RIGHT.log: mIoU of 6019 samples: 42.78
+./extrinsic_noise/level1.merged.log: mIoU of 6019 samples: 38.0
+./extrinsic_noise/level2.merged.log: mIoU of 6019 samples: 38.95
+./extrinsic_noise/level3.merged.log: mIoU of 6019 samples: 26.35
+./extrinsic_noise/level4.merged.log: mIoU of 6019 samples: 32.95

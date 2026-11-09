@@ -1,0 +1,22 @@
+# Sun Nov  8 12:27:35 PST 2026  env=alocc  cmd: python /home/jihoon/work/inspect_masks.py
+scene 0 frame 0
+  infov: dtype bool, values {False: 274377, True: 365623}
+  origin_voxel_state: dtype uint8, values {0: 590681, 1: 49319}
+  final_voxel_state: dtype uint8, values {0: 593597, 1: 46403}
+  mask voxels 32982  free among them 40.0%
+  final_state=0: voxels 332641, free 99.2%
+  final_state=1: voxels 32982, free 40.0%
+scene 37 frame 0
+  infov: dtype bool, values {False: 279869, True: 360131}
+  origin_voxel_state: dtype uint8, values {0: 593841, 1: 46159}
+  final_voxel_state: dtype uint8, values {0: 599875, 1: 40125}
+  mask voxels 24131  free among them 89.1%
+  final_state=0: voxels 336000, free 99.2%
+  final_state=1: voxels 24131, free 89.1%
+scene 37 frame 100
+  infov: dtype bool, values {False: 279869, True: 360131}
+  origin_voxel_state: dtype uint8, values {0: 592327, 1: 47673}
+  final_voxel_state: dtype uint8, values {0: 599096, 1: 40904}
+  mask voxels 20457  free among them 91.8%
+  final_state=0: voxels 339674, free 99.1%
+  final_state=1: voxels 20457, free 91.8%

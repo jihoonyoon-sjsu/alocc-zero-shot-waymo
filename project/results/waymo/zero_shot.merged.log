@@ -1,0 +1,14 @@
+/home/jihoon/work/ALOcc/mmcv/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+Using /home/jihoon/.cache/torch_extensions/py38_cu118 as PyTorch extensions root...
+Detected CUDA files, patching ldflags
+Emitting ninja build file /home/jihoon/.cache/torch_extensions/py38_cu118/dvr/build.ninja...
+Building extension module dvr...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Loading extension module dvr...
+chunk 0 scenes (0, 51): 2034 frames
+chunk 1 scenes (51, 101): 1995 frames
+chunk 2 scenes (101, 152): 2040 frames
+chunk 3 scenes (152, 202): 2000 frames
+merged 8069 -> /home/jihoon/work/results/waymo/preds/zero_shot.pkl

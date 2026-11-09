@@ -1,0 +1,6 @@
+# Sun Nov  8 12:27:34 PST 2026  env=alocc  cmd: python /home/jihoon/work/scene_spread.py
+scenes 202 min 9.0 p10 17.0 median 24.3 p90 31.5 max 49.5
+lowest: [('37', 8.993381463905566), ('34', 12.801668021027277), ('94', 13.60221577400226), ('150', 13.632579381730858), ('137', 13.684889289412672), ('145', 14.408267488472323), ('110', 15.195921916478419), ('193', 15.330604229522393)]
+highest: [('115', 49.504927760506106), ('0', 48.522257279007604), ('165', 42.74291652059994), ('67', 40.0468635421838), ('197', 38.822064985191616)]
+GT share of masked voxels: {'vehicle': 0.8, 'pedestrian': 0.1, 'two_wheeler': 0.0, 'traffic_cone': 0.0, 'drivable_surface': 6.8, 'sidewalk': 4.4, 'vegetation': 2.7, 'manmade': 2.2, 'free': 82.9, 'other': 0.1}
+pred share: {'vehicle': 4.2, 'pedestrian': 0.3, 'two_wheeler': 0.0, 'traffic_cone': 0.0, 'drivable_surface': 13.3, 'sidewalk': 3.6, 'vegetation': 20.9, 'manmade': 24.3, 'free': 27.6, 'other': 5.7}

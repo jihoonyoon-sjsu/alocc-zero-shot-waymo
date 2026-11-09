@@ -1,0 +1,2 @@
+# Sun Nov  8 12:29:23 PST 2026  env=waymo  cmd: python /home/jihoon/work/check_pairing.py
+scenes 202: frames with timestamp mismatch 0; slot/calibration mismatches 0 (worst diff 0.00e+00)

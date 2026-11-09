@@ -1,0 +1,88 @@
+# depth_along_ray.py: step 0.1 m, max 70.0 m, every 4th pixel of the 256x704 model input
+# Waymo frames (scene, raw frame): [(0, 10), (20, 50), (40, 50), (60, 50), (80, 50), (100, 50), (120, 50), (140, 50), (160, 50), (180, 50), (200, 50)]; nuScenes indices: [300, 900, 1500, 2100, 2700, 3300, 3900, 4500, 5100, 5700]
+
+===== nuScenes (baseline predictions): 10 frames, 675840 rays cast, 604105 with a GT hit in the grid, 586140 kept (GT first hit inside the eval mask)
+ratio = pred first-hit distance / GT first-hit distance (along the ray); <0.8 = pred >20% closer; nohit% = pred has no occupied voxel on the ray inside the grid (ratio counted as +inf)
+air = share of the ray before the GT first hit that the pred fills (occupied)
+group                        n median    q25    q75  <0.8%  >1.2% nohit% airMed airMean
+ALL                     586140   0.98   0.75   1.00   28.8    5.2    0.5  0.019  0.095
+-- by GT class of the first hit (merged classes)
+vehicle                  65424   1.00   0.92   1.00    8.3    1.3    0.3  0.000  0.048
+pedestrian                1717   0.92   0.83   0.99   20.8    3.4    0.9  0.059  0.075
+two_wheeler                731   0.96   0.95   1.00    3.3    1.9    0.5  0.027  0.031
+traffic_cone              4795   1.00   0.96   1.00    3.6    2.9    0.0  0.000  0.026
+drivable_surface        184244   0.77   0.70   1.00   52.4    0.1    0.0  0.100  0.151
+sidewalk                 22603   0.83   0.70   1.00   47.4    0.1    0.0  0.083  0.124
+vegetation               58544   0.99   0.89   1.08   11.3   19.6    1.9  0.010  0.054
+manmade                 182796   1.00   0.92   1.00   12.8    6.0    0.8  0.000  0.056
+other                    65286   0.96   0.71   1.00   39.3   10.3    0.0  0.036  0.127
+-- by camera
+CAM_FRONT_LEFT           99598   1.00   0.77   1.00   27.4    7.4    0.4  0.000  0.097
+CAM_FRONT                87143   0.93   0.70   1.00   40.2    5.0    2.2  0.044  0.127
+CAM_FRONT_RIGHT         102791   1.00   0.87   1.00   21.1    4.8    0.3  0.000  0.075
+CAM_BACK_LEFT           103836   0.96   0.75   1.00   28.2    6.3    0.0  0.032  0.099
+CAM_BACK                 90549   0.92   0.71   1.00   41.3    3.5    0.4  0.051  0.120
+CAM_BACK_RIGHT          102223   1.00   0.90   1.00   17.7    3.9    0.1  0.000  0.060
+-- by GT first-hit distance (m)
+0-10                    402773   1.00   0.73   1.00   29.1    4.9    0.1  0.000  0.096
+10-20                   121770   0.97   0.77   1.00   27.3    6.2    0.6  0.025  0.092
+20-30                    44584   0.95   0.78   1.00   27.2    5.0    2.3  0.039  0.087
+30-100                   17013   0.89   0.71   0.97   35.4    4.4    4.0  0.083  0.123
+-- by frame
+nus scene-0275 i300      58016   0.99   0.76   1.00   28.7   11.8    0.1  0.008  0.086
+nus scene-0039 i900      58594   0.95   0.71   1.00   36.6    2.5    0.7  0.048  0.102
+nus scene-0106 i1500     61090   1.00   0.97   1.00    8.0    0.9    0.3  0.000  0.031
+nus scene-0554 i2100     50649   0.92   0.74   1.00   30.9    0.7    0.1  0.049  0.097
+nus scene-0782 i2700     50854   0.71   0.62   0.96   64.8    1.5    0.6  0.289  0.226
+nus scene-0627 i3300     61395   1.00   0.95   1.00   14.8    2.2    0.2  0.000  0.041
+nus scene-0909 i3900     59300   0.97   0.70   1.00   39.4    1.5    0.2  0.025  0.145
+nus scene-0794 i4500     58043   0.96   0.87   1.00   18.4    5.1    1.0  0.022  0.064
+nus scene-0924 i5100     64320   0.92   0.71   1.00   36.4   12.8    1.0  0.065  0.133
+nus scene-1066 i5700     63879   1.00   0.89   1.00   16.7   10.8    1.0  0.000  0.049
+median |pred - GT| distance on rays with a pred hit: 0.50 m; median GT first-hit distance 6.85 m
+SANITY 1 (GT as pred): max |ratio - 1| = 0.00e+00 over 586140 rays
+SANITY 3 (GT first-hit voxel center projected forward vs the ray pixel): median 15.49 px, 95th pct 46.80 px; in units of the projected voxel width: median 0.51, 95th pct 0.73, max 1.20 (<= ~0.87 expected for a 3D voxel)
+
+===== Waymo (zero_shot predictions): 11 frames, 619520 rays cast, 582481 with a GT hit in the grid, 479055 kept (GT first hit inside the eval mask)
+ratio = pred first-hit distance / GT first-hit distance (along the ray); <0.8 = pred >20% closer; nohit% = pred has no occupied voxel on the ray inside the grid (ratio counted as +inf)
+air = share of the ray before the GT first hit that the pred fills (occupied)
+group                        n median    q25    q75  <0.8%  >1.2% nohit% airMed airMean
+ALL                     479055   0.51   0.22   0.66   88.4    1.2    0.0  0.418  0.413
+-- by GT class of the first hit (merged classes)
+vehicle                  79580   0.66   0.54   0.73   86.2    2.5    0.0  0.307  0.309
+pedestrian                7897   0.69   0.63   0.76   78.9    6.1    0.0  0.150  0.166
+two_wheeler                 21   0.50   0.49   0.50  100.0    0.0    0.0  0.324  0.311
+traffic_cone              1129   0.68   0.62   0.78   78.3    0.0    0.0  0.265  0.265
+drivable_surface        179095   0.37   0.17   0.58   99.8    0.1    0.0  0.505  0.542
+sidewalk                 78888   0.39   0.17   0.58   98.4    0.0    0.0  0.523  0.525
+vegetation               56086   0.56   0.13   0.75   77.5    1.0    0.0  0.312  0.307
+manmade                  70280   0.65   0.39   0.94   63.0    1.7    0.1  0.148  0.206
+other                     6079   0.73   0.40   1.14   57.8   24.3    0.0  0.204  0.217
+-- by camera
+CAM_SIDE_LEFT            93845   0.51   0.18   0.68   86.0    0.8    0.0  0.417  0.411
+CAM_FRONT_LEFT           92106   0.58   0.26   0.68   85.8    1.2    0.0  0.416  0.395
+CAM_FRONT                83580   0.54   0.19   0.59   95.9    0.5    0.0  0.421  0.454
+CAM_FRONT_RIGHT         104312   0.58   0.28   0.68   85.9    1.7    0.0  0.403  0.373
+CAM_SIDE_RIGHT          105212   0.40   0.22   0.60   89.3    1.7    0.0  0.440  0.436
+-- by GT first-hit distance (m)
+0-10                    192045   0.56   0.37   0.64   93.6    2.6    0.0  0.421  0.439
+10-20                   201550   0.48   0.17   0.66   85.0    0.4    0.0  0.417  0.397
+20-30                    56873   0.53   0.09   0.74   79.9    0.2    0.0  0.321  0.352
+30-100                   28587   0.31   0.06   0.60   93.5    0.2    0.2  0.483  0.467
+-- by frame
+waymo s000 f010          37650   0.48   0.22   0.58   98.2    0.0    0.0  0.450  0.491
+waymo s020 f050          48295   0.66   0.45   0.84   71.9    1.6    0.0  0.236  0.232
+waymo s040 f050          48945   0.59   0.24   0.75   78.8    0.7    0.0  0.312  0.306
+waymo s060 f050          45075   0.48   0.37   0.58   99.1    0.3    0.1  0.420  0.428
+waymo s080 f050          46829   0.58   0.45   0.70   82.2    0.1    0.0  0.414  0.346
+waymo s100 f050          42907   0.17   0.11   0.37  100.0    0.0    0.0  0.685  0.665
+waymo s120 f050          44567   0.43   0.36   0.58  100.0    0.0    0.0  0.531  0.527
+waymo s140 f050          44532   0.59   0.48   0.71   83.4    0.3    0.1  0.412  0.335
+waymo s160 f050          33389   0.23   0.17   0.52   91.6    4.3    0.0  0.481  0.441
+waymo s180 f050          39194   0.08   0.05   0.12  100.0    0.0    0.0  0.756  0.664
+waymo s200 f050          47672   0.69   0.64   0.80   74.7    6.4    0.0  0.219  0.207
+median |pred - GT| distance on rays with a pred hit: 5.60 m; median GT first-hit distance 11.35 m
+SANITY 1 (GT as pred): max |ratio - 1| = 0.00e+00 over 479055 rays
+SANITY 3 (GT first-hit voxel center projected forward vs the ray pixel): median 13.45 px, 95th pct 30.23 px; in units of the projected voxel width: median 0.51, 95th pct 0.71, max 0.93 (<= ~0.87 expected for a 3D voxel)
+
+SANITY 2: nuScenes median ratio 0.98 (Waymo 0.51)

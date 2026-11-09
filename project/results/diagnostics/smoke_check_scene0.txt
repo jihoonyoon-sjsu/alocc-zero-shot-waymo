@@ -1,0 +1,9 @@
+# Sun Nov  8 12:27:15 PST 2026  env=alocc  cmd: python /home/jihoon/work/check_waymo_smoke.py /home/jihoon/work/results/waymo_smoke/scene0.pkl
+results 57 unique frames 40
+pred shape (200, 200, 16) uint8 values [ 3  4  5  8  9 10 11 12 13 14 15 16 17]
+geometric IoU as-is         48.5   GT vehicle predicted as a vehicle 36.4%
+geometric IoU flip x        51.8   GT vehicle predicted as a vehicle 8.3%
+geometric IoU flip y        47.8   GT vehicle predicted as a vehicle 1.7%
+geometric IoU transpose xy  50.3   GT vehicle predicted as a vehicle 1.7%
+GT road predicted as: driveable_surface 76%, terrain 13%, sidewalk 7%, manmade 4%
+GT vehicle predicted as: driveable_surface 26%, truck 23%, car 13%, manmade 13%
