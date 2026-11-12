@@ -17,3 +17,6 @@ __pycache__/
 
 # Local build output
 build/
+
+# macOS metadata
+.DS_Store

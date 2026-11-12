@@ -1,0 +1,14 @@
+# Archive order, not the raw Waymo frame_idx. Order 0 is frame_idx 0 and order 39 is frame_idx 195.
+# The launch file expands ~ to the current user's home directory.
+dataset_root: ~/alocc-data/waymo_scene0
+replay_rate: 1.0
+loop: false
+start_frame: 0
+end_frame: 39
+publish_camera_images: true
+publish_camera_info: true
+publish_occupancy: true
+timeout_sec: 180.0
+# The existing marker node is off so a headless replay can exit.
+# Set true to publish /alocc/waymo_scene0/markers. That process keeps running.
+enable_markers: false
