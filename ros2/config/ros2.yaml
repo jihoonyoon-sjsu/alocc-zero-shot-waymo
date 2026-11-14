@@ -1,0 +1,19 @@
+# ROS name for Person 2's ego vehicle frame. x is forward, y is left, z is up.
+# That matches the confirmed grid, so markers are not rotated again.
+frame_id: "ego"
+occupancy_topic: "/alocc/occupancy"
+flow_topic: "/alocc/flow"
+marker_topic: "/alocc/visualization/markers"
+publish_rate_hz: 2.0
+demo_duration_sec: 5.0
+free_class_name: "free"
+results_dir: "results"
+visualization:
+  # Empty draws every class except free_class_name. Class 0, others, is drawn.
+  classes: []
+  # 1 keeps every selected voxel. A larger stride keeps i, j, and k divisible by it.
+  downsample_stride: 1
+  # 0 does not cap. A positive cap walks x-fastest order and omits later voxels.
+  max_voxels: 0
+  # 0 publishes a MarkerArray on every occupancy message.
+  min_period_sec: 0.0

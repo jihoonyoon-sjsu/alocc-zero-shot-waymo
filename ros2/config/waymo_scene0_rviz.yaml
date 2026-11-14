@@ -1,0 +1,17 @@
+# Marker display settings for the scene 0 RViz view.
+# The occupancy topic stays the full 200 x 200 x 16 grid.
+# downsample_stride 2 draws voxels whose x, y, and z indices are multiples of 2.
+# That is a visual reduction only. max_voxels 0 does not clip the reduced set.
+# config/waymo_scene0_visualization.yaml remains stride 1 for a full marker pass.
+frame_id: "ego"
+occupancy_topic: "/alocc/waymo_scene0/occupancy"
+flow_topic: "/alocc/waymo_scene0/flow_unused"
+marker_topic: "/alocc/waymo_scene0/markers"
+publish_rate_hz: 2.0
+demo_duration_sec: 30.0
+free_class_name: "free"
+visualization:
+  classes: []
+  downsample_stride: 2
+  max_voxels: 0
+  min_period_sec: 0.0

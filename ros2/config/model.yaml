@@ -1,0 +1,90 @@
+# The occupancy block is the small mock, JSON, Python, and ROS demo grid.
+# The confirmed ALOcc contract is confirmed_alocc. Pickle playback applies
+# that contract when pred_occupancy has the same shape. The motion-flow head
+# is outside the current project scope, so flow units stay unconfirmed and
+# the mock generator is the only source of flow vectors.
+occupancy:
+  dim_x: 8
+  dim_y: 8
+  dim_z: 4
+  resolution_x: 0.5
+  resolution_y: 0.5
+  resolution_z: 0.5
+  origin_x: 0.0
+  origin_y: 0.0
+  origin_z: 0.0
+  coordinate_convention: "UNCONFIRMED_PLACEHOLDER_XYZ"
+  class_names: ["unlabeled", "free", "occupied"]
+  label_layout: "x_fastest_then_y_then_z"
+flow:
+  flow_units: "UNCONFIRMED_PLACEHOLDER_METERS_PER_SECOND"
+  vector_layout: "xyz_per_voxel_x_fastest"
+
+# Person 2 confirmed this grid for nuScenes and Waymo occupancy predictions.
+# Class ids are the list positions. Waymo uses the same nuScenes labels.
+# Origin is the minimum corner of voxel (0, 0, 0), in the ego frame.
+confirmed_alocc:
+  dim_x: 200
+  dim_y: 200
+  dim_z: 16
+  resolution_x: 0.4
+  resolution_y: 0.4
+  resolution_z: 0.4
+  origin_x: -40.0
+  origin_y: -40.0
+  origin_z: -1.0
+  bound_x_max: 40.0
+  bound_y_max: 40.0
+  bound_z_max: 5.4
+  coordinate_frame: "ego"
+  axis_order: ["x", "y", "z"]
+  axis_directions:
+    x: "forward"
+    y: "left"
+    z: "up"
+  coordinate_convention: "ego_x_forward_y_left_z_up"
+  class_names:
+    - others
+    - barrier
+    - bicycle
+    - bus
+    - car
+    - construction_vehicle
+    - motorcycle
+    - pedestrian
+    - traffic_cone
+    - trailer
+    - truck
+    - driveable_surface
+    - other_flat
+    - sidewalk
+    - terrain
+    - manmade
+    - vegetation
+    - free
+file:
+  # One JSON file, or a directory of JSON files read in filename order.
+  path: ""
+  pattern: "*.json"
+  loop: true
+python:
+  callable: ""
+  # Optional sample passed only when predict accepts a second argument.
+  sample: {}
+  sample_path: ""
+  pattern: "*.json"
+  loop: true
+pkl:
+  # One trusted ALOcc prediction pickle. Empty until a demo passes --input.
+  path: ""
+  loop: false
+  # 0 means do not stop early. The real demo script sets a small cap.
+  max_samples: 0
+ros_input:
+  occupancy_topic: "/alocc/input/occupancy"
+  flow_topic: "/alocc/input/flow"
+  # Unpaired messages older than this are dropped. 0 disables age expiry.
+  wait_timeout_sec: 1.0
+  # Pair occupancy and flow only when their stamps differ by at most this many nanoseconds.
+  sync_tolerance_ns: 0
+  max_queue: 16

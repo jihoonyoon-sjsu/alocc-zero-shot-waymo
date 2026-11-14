@@ -1,0 +1,45 @@
+build/
+install/
+log/
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+.eggs/
+
+# Generated demo output
+results/*
+!results/runtime/
+!results/visualization/
+results/runtime/*
+!results/runtime/.gitkeep
+results/visualization/*
+!results/visualization/.gitkeep
+
+# macOS metadata
+.DS_Store
+
+# Dataset and prediction artifacts. Source files, SVG output, and .gitkeep stay tracked.
+*.pkl
+*.zip
+*.jpg
+*.jpeg
+
+# Datasets, checkpoints, and secrets do not belong in this framework repo
+*.bag
+*.db3
+*.mcap
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.npy
+*.npz
+data/nuscenes/
+data/waymo/
+credentials*
+*.pem
+*.key
+.env
