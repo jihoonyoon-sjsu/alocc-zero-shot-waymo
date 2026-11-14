@@ -1,0 +1,14 @@
+# Separate display settings for the scene 0 replay.
+# This file does not change config/ros2.yaml or /alocc/visualization/markers.
+frame_id: "ego"
+occupancy_topic: "/alocc/waymo_scene0/occupancy"
+flow_topic: "/alocc/waymo_scene0/flow_unused"
+marker_topic: "/alocc/waymo_scene0/markers"
+publish_rate_hz: 2.0
+demo_duration_sec: 30.0
+free_class_name: "free"
+visualization:
+  classes: []
+  downsample_stride: 1
+  max_voxels: 0
+  min_period_sec: 0.0

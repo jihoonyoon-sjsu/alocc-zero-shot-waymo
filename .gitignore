@@ -24,3 +24,6 @@ venv_alocc_waymo_robustness/
 
 # Temporary robustness test images
 project/robustness/*_test.png
+
+# macOS metadata
+.DS_Store

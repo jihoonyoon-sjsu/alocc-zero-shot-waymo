@@ -1,0 +1,43 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Class: rviz_default_plugins/Grid
+      Enabled: true
+      Name: Grid
+    - Alpha: 1
+      Class: rviz_default_plugins/MarkerArray
+      Enabled: true
+      Name: ALOccOccupancy
+      Namespaces:
+        mock_flow: true
+        mock_occupancy: true
+        occupancy: true
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /alocc/visualization/markers
+  Enabled: true
+  Global Options:
+    Background Color: 48; 48; 48
+    Fixed Frame: ego
+    Frame Rate: 30
+  Name: root
+  Tools:
+    - Class: rviz_default_plugins/Interact
+    - Class: rviz_default_plugins/MoveCamera
+  Value: true
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 90
+      Name: Current View
+      Pitch: 0.7
+      Yaw: 0.9
+Window Geometry:
+  Height: 800
+  Width: 1200
