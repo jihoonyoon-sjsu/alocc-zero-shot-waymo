@@ -38,7 +38,7 @@ These are copies of the helper scripts that ran in WSL. Paths inside them are ma
   - `extrinsic_noise/`: official logs for noise levels 1 to 4, and the exact noise drawn per camera (`noise_level*.json`).
   - `merged8_scores/`: 8-class scores for every dropout and noise run, split by distance and camera direction.
 - `waymo/`: logs and score files for the zero-shot and history-reset runs (8,069 frames each). Each score file includes per-scene occupied IoU.
-- `diagnostics/`: text outputs of every check and diagnostic script, one file per script.
+- `diagnostics/`: text outputs of the check and diagnostic scripts. `VALIDATION.md` lists every pipeline check, its result, and where the evidence is.
 
 ## Not included
 
