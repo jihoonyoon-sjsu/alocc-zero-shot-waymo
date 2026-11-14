@@ -11,12 +11,19 @@ mmdet3d.egg-info
 map_dict.py
 openocc_training_eval_results
 grad_cam
+
 # Python cache
 __pycache__/
 *.pyc
 
 # Local build output
 build/
+
+# Local Python virtual environment
+venv_alocc_waymo_robustness/
+
+# Temporary robustness test images
+project/robustness/*_test.png
 
 # macOS metadata
 .DS_Store
