@@ -39,8 +39,9 @@ robust_test_pipeline = [
                 type='RobustPrepareImageInputs',
                 data_config=waymo_data_config,
                 sequential=True,
-                corruption='gaussian_noise',
+                corruption=None,
                 severity=1,
+                crop_shift=50,
             ),
             dict(
                 type='LoadAnnotationsBEVDepth',
