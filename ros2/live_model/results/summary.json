@@ -1,0 +1,83 @@
+{
+  "frames": 40,
+  "note": "first frame excluded from latency stats (CUDA warm-up)",
+  "latency_ms": {
+    "end_to_end_ms": {
+      "mean": 811.9,
+      "median": 809.8,
+      "p95": 914.6,
+      "max": 1044.6
+    },
+    "model_infer_ms": {
+      "mean": 430.5,
+      "median": 423.4,
+      "p95": 506.2,
+      "max": 666.4
+    },
+    "model_prep_ms": {
+      "mean": 184.8,
+      "median": 183.4,
+      "p95": 204.0,
+      "max": 234.1
+    },
+    "server_roundtrip_ms": {
+      "mean": 690.4,
+      "median": 696.0,
+      "p95": 781.7,
+      "max": 914.3
+    },
+    "convert_publish_ms": {
+      "mean": 121.5,
+      "median": 114.8,
+      "p95": 153.3,
+      "max": 162.1
+    },
+    "image_rx_ms": {
+      "mean": 1437.6,
+      "median": 1423.7,
+      "p95": 1576.5,
+      "max": 1666.0
+    }
+  },
+  "throughput_fps": 1.23,
+  "resources": {
+    "gpu_util_pct": {
+      "mean": 19.9,
+      "median": 4.0,
+      "p95": 97.0,
+      "max": 100.0
+    },
+    "gpu_mem_used_mb": {
+      "mean": 11617.1,
+      "median": 11639.0,
+      "p95": 11669.4,
+      "max": 11682.0
+    },
+    "ros_node_cpu_pct": {
+      "mean": 27.9,
+      "median": 2.0,
+      "p95": 26.6,
+      "max": 4000.0
+    },
+    "ros_node_rss_mb": {
+      "mean": 179.9,
+      "median": 164.9,
+      "p95": 221.3,
+      "max": 221.3
+    },
+    "model_server_cpu_pct": {
+      "mean": 55.6,
+      "median": 0.0,
+      "p95": 215.7,
+      "max": 291.4
+    },
+    "model_server_rss_mb": {
+      "mean": 2703.0,
+      "median": 2688.6,
+      "p95": 3528.8,
+      "max": 3616.4
+    }
+  },
+  "gpu_peak_alloc_mb_torch": 8371,
+  "frames_matching_saved_100pct": 40
+}
