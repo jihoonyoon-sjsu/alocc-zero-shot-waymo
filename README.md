@@ -6,7 +6,7 @@ Video demo: VIDEO_LINK_TO_BE_ADDED
 
 CMPE 249 – Intelligent Autonomous Systems, SJSU. Project Track: Option 1 – Apply and Evaluate Pretrained Models (No Training).
 
-Team: Simisola Winjobi, JiHoon Yoon, Tara Fathinejad
+Team: JiHoon Yoon, Simisola Winjobi, Tara Fathinejad
 
 ## Built on ALOcc
 
@@ -51,11 +51,18 @@ Full tables are in `project/results/` and in the report.
 
 Tested on WSL2 Ubuntu 22.04 with one RTX 4070 Ti (12 GB).
 
-1. **ALOcc environment** (`alocc`, Python 3.8): follow the installation steps in [README_ALOcc.md](README_ALOcc.md) (PyTorch 2.0.1 + CUDA 11.8, mmcv 1.x built with ops, mmdet 2.28.2, mmsegmentation 0.30.0, then `pip install -v -e .`).
+Clone **this** repository (not upstream ALOcc, which lacks `project/` and `ros2/`):
+
+```bash
+git clone https://github.com/jihoonyoon-sjsu/alocc-zero-shot-waymo.git
+cd alocc-zero-shot-waymo
+```
+
+1. **ALOcc environment** (`alocc`, Python 3.8): follow the environment installation steps in [README_ALOcc.md](README_ALOcc.md), skipping its `git clone` step (PyTorch 2.0.1 + CUDA 11.8, mmcv 1.x built with ops, mmdet 2.28.2, mmsegmentation 0.30.0, then `pip install -v -e .`).
 2. **Waymo environment** (`waymo`, Python 3.10): waymo-open-dataset 1.6.7 and pyarrow (used only to extract images and check calibration).
 3. **Checkpoint:** download `alocc_3d_r50_256x704_bevdet_preatrain_16f.pth` from the [ALOcc Hugging Face Hub](https://huggingface.co/Dobbin/OccStudio/blob/main/alocc_3d_r50_256x704_bevdet_preatrain_16f.pth) into `ckpts/`.
 4. **Data:**
-   - nuScenes and Occ3D-nuScenes: see [README_ALOcc.md](README_ALOcc.md) ([nuScenes](https://www.nuscenes.org/download), [Occ3D](https://tsinghua-mars-lab.github.io/Occ3D/)).
+   - nuScenes and Occ3D-nuScenes: see [README_ALOcc.md](README_ALOcc.md) ([nuScenes](https://www.nuscenes.org/download), [Occ3D](https://tsinghua-mars-lab.github.io/Occ3D/)). Keep the info files under their full names, `data/nuscenes/bevdetv2-nuscenes_infos_train.pkl` and `data/nuscenes/bevdetv2-nuscenes_infos_val.pkl`: ALOcc's folder sketch calls them `train.pkl` and `val.pkl`, but the config and our scorer read the full names.
    - Waymo Open Dataset v2.0.1 validation (camera image, camera calibration and pose components only) from [waymo.com/open](https://waymo.com/open/), plus the Occ3D-Waymo validation labels from the [Occ3D page](https://tsinghua-mars-lab.github.io/Occ3D/).
 
 ## How to run (evaluation only)
@@ -75,6 +82,8 @@ export WAYMO_ROOT=/path/to/waymo_alocc         # output folder for extracted ima
    python project/tools/extract_waymo_images.py $WAYMO_V2_VAL_DIR $OCC3D_WAYMO_ROOT $WAYMO_ROOT
    ```
 
+Steps 2 to 5 run in the `alocc` env (`conda activate alocc`).
+
 2. nuScenes baseline:
 
    ```bash
@@ -91,17 +100,23 @@ export WAYMO_ROOT=/path/to/waymo_alocc         # output folder for extracted ima
 
    For the history-reset ablation, add `--cfg-options data.test.sequences_split_num=all`.
 
-4. Score on 8 merged classes:
+4. Merge the Waymo output (maps each prediction to its scene and frame and drops the loader's padding repeats):
 
    ```bash
-   python project/tools/score_waymo.py zero_shot.pkl zero_shot.score.json $WAYMO_ROOT/waymo_infos_val_jpg.pkl $OCC3D_WAYMO_ROOT/validation
+   python project/tools/merge_waymo_chunks.py $WAYMO_ROOT/waymo_infos_val_jpg.pkl "0:202" zero_shot.pkl zero_shot.merged.pkl
+   ```
+
+5. Score on 8 merged classes:
+
+   ```bash
+   python project/tools/score_waymo.py zero_shot.merged.pkl zero_shot.score.json $WAYMO_ROOT/waymo_infos_val_jpg.pkl $OCC3D_WAYMO_ROOT/validation
    python project/tools/score_nuscenes_merged.py nus_baseline.pkl nus_baseline.score.json
    ```
 
    The Waymo scorer's default paths are machine-specific, so always pass the info file and label folder as above.
 
-5. Camera dropout and extrinsic noise configs: `project/tools/make_cam_dropout_config.py` and `project/tools/make_extrinsic_noise_config.py`.
+6. Camera dropout and extrinsic noise configs: `project/tools/make_cam_dropout_config.py` and `project/tools/make_extrinsic_noise_config.py`.
 
-6. Live ROS 2 run: see [ros2/live_model/README.md](ros2/live_model/README.md).
+7. Live ROS 2 run: see [ros2/live_model/README.md](ros2/live_model/README.md). The model server (`ros2/live_model/alocc_server.py`) uses our machine's paths at the top of the file (`~/work/ALOcc` for the ALOcc checkout, `~/work/project/tools` and the zero-shot config); point them at this repository's root, `project/tools` and `project/configs/alocc_3d_waymo_portable.py` before running.
 
 The exact scripts used for every run, with their machine-specific paths, are in `project/scripts/`.
