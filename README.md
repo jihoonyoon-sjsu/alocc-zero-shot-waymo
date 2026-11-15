@@ -64,6 +64,7 @@ Run from the repository root with `project/tools` on `PYTHONPATH`, and set two d
 
 ```bash
 export PYTHONPATH=$PWD/project/tools:$PYTHONPATH
+export WAYMO_V2_VAL_DIR=/path/to/waymo_v2/validation   # Waymo v2.0.1 validation, contains camera_image/*.parquet (202 segments)
 export OCC3D_WAYMO_ROOT=/path/to/occ3d_waymo   # contains waymo_infos_val.pkl, cam_infos_vali.pkl, validation/
 export WAYMO_ROOT=/path/to/waymo_alocc         # output folder for extracted images
 ```
@@ -71,7 +72,7 @@ export WAYMO_ROOT=/path/to/waymo_alocc         # output folder for extracted ima
 1. Extract Waymo images (in the `waymo` env). This also writes `$WAYMO_ROOT/waymo_infos_val_jpg.pkl`:
 
    ```bash
-   python project/tools/extract_waymo_images.py WAYMO_V2_VAL_DIR $OCC3D_WAYMO_ROOT $WAYMO_ROOT
+   python project/tools/extract_waymo_images.py $WAYMO_V2_VAL_DIR $OCC3D_WAYMO_ROOT $WAYMO_ROOT
    ```
 
 2. nuScenes baseline:
