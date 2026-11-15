@@ -1,0 +1,23 @@
+=== crop_shift_50 chunk0 (0:51) try1 start Sat Nov 14 15:47:12 PST 2026
+=== restarted with crop_shift_50 only (user: stick to Tara plan) Sat Nov 14 15:50:59 PST 2026
+=== crop_shift_50 chunk0 (0:51) try1 start Sat Nov 14 15:50:59 PST 2026
+=== crop_shift_50 chunk0 try1 exit 0 Sat Nov 14 16:01:18 PST 2026
+=== crop_shift_50 chunk1 (51:101) try1 start Sat Nov 14 16:01:18 PST 2026
+=== crop_shift_50 chunk1 try1 exit 0 Sat Nov 14 16:10:15 PST 2026
+=== crop_shift_50 chunk2 (101:152) try1 start Sat Nov 14 16:10:15 PST 2026
+=== crop_shift_50 chunk2 try1 exit 0 Sat Nov 14 16:19:18 PST 2026
+=== crop_shift_50 chunk3 (152:202) try1 start Sat Nov 14 16:19:18 PST 2026
+=== crop_shift_50 chunk3 try1 exit 0 Sat Nov 14 16:28:16 PST 2026
+=== crop_shift_50 merged exit 0 Sat Nov 14 16:29:01 PST 2026
+=== ALL DONE Sat Nov 14 16:29:43 PST 2026
+=== queued crop_shift_40 start Sat Nov 14 16:29:59 PST 2026
+=== crop_shift_40 chunk0 (0:51) try1 start Sat Nov 14 16:30:00 PST 2026
+=== crop_shift_40 chunk0 try1 exit 0 Sat Nov 14 16:39:17 PST 2026
+=== crop_shift_40 chunk1 (51:101) try1 start Sat Nov 14 16:39:17 PST 2026
+=== crop_shift_40 chunk1 try1 exit 0 Sat Nov 14 16:48:15 PST 2026
+=== crop_shift_40 chunk2 (101:152) try1 start Sat Nov 14 16:48:15 PST 2026
+=== crop_shift_40 chunk2 try1 exit 0 Sat Nov 14 16:57:18 PST 2026
+=== crop_shift_40 chunk3 (152:202) try1 start Sat Nov 14 16:57:18 PST 2026
+=== crop_shift_40 chunk3 try1 exit 0 Sat Nov 14 17:06:00 PST 2026
+=== crop_shift_40 merged exit 0 Sat Nov 14 17:06:47 PST 2026
+=== ALL DONE Sat Nov 14 17:07:28 PST 2026

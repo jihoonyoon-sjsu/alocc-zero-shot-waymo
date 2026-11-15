@@ -1,0 +1,31 @@
+Using /home/jihoon/.cache/torch_extensions/py38_cu118 as PyTorch extensions root...
+Detected CUDA files, patching ldflags
+Emitting ninja build file /home/jihoon/.cache/torch_extensions/py38_cu118/dvr/build.ninja...
+Building extension module dvr...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+validated: 8069 unique frames = every expected frame, shapes and labels OK
+Loading extension module dvr...
+/home/jihoon/work/results/tara_robustness/preds/crop_shift_40.pkl: 8069 frames
+occupied IoU 21.43  mIoU (8 merged) 8.81
+  vehicle             5.61
+  pedestrian          1.52
+  two_wheeler         0.93
+  traffic_cone        0.81
+  drivable_surface   33.48
+  sidewalk           13.71
+  vegetation          7.92
+  manmade             6.47
+by distance:
+  0-10m            occupied IoU  22.01  mIoU   8.10  voxels 35814197
+  10-20m           occupied IoU  30.81  mIoU  11.46  voxels 144770226
+  20-30m           occupied IoU  22.82  mIoU   9.27  voxels 199968546
+  30-40m           occupied IoU  18.41  mIoU   8.00  voxels 221876039
+  40m+             occupied IoU  14.96  mIoU   5.82  voxels 88466601
+by camera sector:
+  FRONT            occupied IoU  27.13  mIoU  10.08  voxels 158117802
+  FRONT_LEFT       occupied IoU  18.28  mIoU   7.95  voxels 205964322
+  SIDE_LEFT        occupied IoU  17.45  mIoU   7.69  voxels 118376723
+  FRONT_RIGHT      occupied IoU  22.77  mIoU   8.81  voxels 137482314
+  SIDE_RIGHT       occupied IoU  22.73  mIoU   8.13  voxels 70954448
+scene 0 occupied IoU 46.77
