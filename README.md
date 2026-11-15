@@ -1,6 +1,6 @@
-# Same Model, New Car?
+# Diagnosing Zero-Shot Transfer of a Pretrained 3D Semantic Occupancy Model from nuScenes to Waymo
 
-Diagnosing zero-shot transfer of a pretrained 3D semantic occupancy model (ALOcc-3D) from nuScenes to Waymo. We run the released nuScenes checkpoint on Occ3D-Waymo with no retraining, measure the drop, and diagnose why.
+We run the released nuScenes checkpoint of ALOcc-3D on Occ3D-Waymo with no retraining, measure the drop, and diagnose why.
 
 Video demo: VIDEO_LINK_TO_BE_ADDED
 
