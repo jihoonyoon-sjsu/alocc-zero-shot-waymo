@@ -40,7 +40,7 @@ Nothing was trained. All numbers come from the released ALOcc-3D nuScenes checkp
 | mIoU (8 classes) | 50.25 | 9.56 |
 
 - nuScenes reproduction: 45.46 official mIoU (published 45.5).
-- Removing the rear camera on nuScenes costs only about 5 mIoU (45.46 to 40.24), and resetting the 16-frame history on Waymo changes scores by about 1 point.
+- Removing the rear camera on nuScenes costs only about 5 official mIoU (45.46 to 40.24), and resetting the 16-frame history on Waymo changes scores by about 1 point.
 - On Waymo, the model over-fills free space and raises the road surface by about 0.8 m, while the top-down layout stays roughly right.
 - Shifting the image crop up to move the Waymo horizon toward the nuScenes position made results slightly worse (shift 40 px, which matches nuScenes: 8.81 mIoU; shift 50 px: 8.70; original: 9.56).
 - Live ROS 2 run on an RTX 4070 Ti: 812 ms end-to-end per frame (1.23 FPS), identical to the offline predictions.
@@ -120,3 +120,7 @@ Steps 2 to 5 run in the `alocc` env (`conda activate alocc`).
 7. Live ROS 2 run: see [ros2/live_model/README.md](ros2/live_model/README.md). The model server (`ros2/live_model/alocc_server.py`) uses our machine's paths at the top of the file (`~/work/ALOcc` for the ALOcc checkout, `~/work/project/tools` and the zero-shot config); point them at this repository's root, `project/tools` and `project/configs/alocc_3d_waymo_portable.py` before running.
 
 The exact scripts used for every run, with their machine-specific paths, are in `project/scripts/`.
+
+## Team
+
+JiHoon Yoon, Simisola Winjobi and Tara Fathinejad worked on this project together in joint work sessions. Most commits were pushed from JiHoon's account during those sessions, so the commit history does not show the full split of work.
