@@ -2,7 +2,7 @@
 
 We run the released nuScenes checkpoint of ALOcc-3D on Occ3D-Waymo with no retraining, measure the drop, and diagnose why.
 
-Video demo: VIDEO_LINK_TO_BE_ADDED
+Video: https://drive.google.com/file/d/1RQD9L2DBlSatY02br4GPjWe_qaI6JdXt/view?usp=sharing
 
 CMPE 249 – Intelligent Autonomous Systems, SJSU. Project Track: Option 1 – Apply and Evaluate Pretrained Models (No Training).
 
